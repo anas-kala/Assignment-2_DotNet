@@ -15,6 +15,10 @@ namespace MocksExercise
     {
         public bool IsPrime(ulong input)
         {
+            if (input.Equals(1))
+            {
+                return false;
+            }
             for (ulong n = input - 1; n > 1; n--)
             {
                 if (input % n == 0)

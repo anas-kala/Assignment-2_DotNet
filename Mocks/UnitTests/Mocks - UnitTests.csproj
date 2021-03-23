@@ -69,10 +69,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandContainerUnitTests.cs" />
-    <Compile Include="DivCommandUnitTests.cs" />
-    <Compile Include="IsPrimeCommandUnitTests.cs" />
-    <Compile Include="PrimeCheckerUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

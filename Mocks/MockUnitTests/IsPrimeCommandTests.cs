@@ -1,16 +1,16 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MocksExercise;
+using Moq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MocksExercise;
-using Moq;
 
-namespace UnitTests
+namespace MocksExercise.Tests
 {
-    [TestClass]
-    public class IsPrimeCommandUnitTests
+    [TestClass()]
+    public class IsPrimeCommandTests
     {
         [TestMethod]
         public void TestAccept1()
@@ -55,7 +55,7 @@ namespace UnitTests
 
             // We expect an exception because negative numbers are not supported.
             //
-            obj.Execute(new List<string> { "-1"});
+            obj.Execute(new List<string> { "-1" });
         }
 
         [TestMethod]
@@ -69,6 +69,5 @@ namespace UnitTests
             //
             obj.Execute(new List<string> { "2", "abcd" });
         }
-
     }
 }

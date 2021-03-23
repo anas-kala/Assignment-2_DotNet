@@ -1,14 +1,15 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MocksExercise;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace UnitTests
+namespace MocksExercise.Tests
 {
-    /// <summary>
-    /// This class provides unit tests to verify the functionality of the prime checker. 
-    /// </summary>
-    [TestClass]
-    public class SimplePrimeCheckerUnitTests
+    [TestClass()]
+    public class SimplePrimeCheckerTests
     {
         [TestMethod]
         public void TestCheck()

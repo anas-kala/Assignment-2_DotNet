@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Management.Instrumentation;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MocksExercise;
 using Moq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace UnitTests
+namespace MocksExercise.Tests
 {
-    [TestClass]
-    public class CommandContainerUnitTests
+    [TestClass()]
+    public class CommandContainerTests
     {
-
-        /// <summary>
-        /// Test if add checks for invalid inputs.
-        /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))] // Tell the runtime to expect an exception to be thrown in this test
         public void TestAdd()
@@ -61,7 +55,7 @@ namespace UnitTests
             // our MOCK will act as a user providing a single input.
             //
             inputReaderMock
-                .Setup(x => x.StartInputLoop()).Raises((x) => 
+                .Setup(x => x.StartInputLoop()).Raises((x) =>
                     // Notice this += is a trick the Mock library uses to fire events. 
                     x.InputEntered += null, this, new InputReadEventArgs("unknown command"));
 
@@ -147,7 +141,7 @@ namespace UnitTests
                     // Tests the first parameter is not null
                     It.IsNotNull<string>(),
                     // Test the second parameter is an empty list
-                    It.Is<List<string>>( (input) => input != null && input.Count == 0)),
+                    It.Is<List<string>>((input) => input != null && input.Count == 0)),
                 Times.Once // We expect this method to be called exactly once.
             );
         }
@@ -163,11 +157,11 @@ namespace UnitTests
             // Create a fake command. We want to test if it is executed.
             //
             var commandMock = new Mock<ICommand>();
-            
+
             // Let accept retun true  if the command is "command" and args is anything.
             //
             commandMock.Setup(x => x.Accept(
-                It.Is<string>( input => input == "command"), 
+                It.Is<string>(input => input == "command"),
                 It.IsAny<List<string>>()))
                 .Returns(true);
 
@@ -195,7 +189,7 @@ namespace UnitTests
             // Set up the Execute() method of the mock, we expect it to be never called in this test. 
             //
             commandMock.Verify(x =>
-                    x.Execute(It.Is<List<string>>( input => input != null && input.Count == 1 && input[0] == "arg")),
+                    x.Execute(It.Is<List<string>>(input => input != null && input.Count == 1 && input[0] == "arg")),
                 Times.Once); // We expect the execute to be called once.
 
             // Set up the mock for the Accept() method and add some constraints we expect on the parameter.
@@ -207,8 +201,5 @@ namespace UnitTests
                 Times.Once // We expect this method to be called exactly once.
             );
         }
-
-
-
     }
 }

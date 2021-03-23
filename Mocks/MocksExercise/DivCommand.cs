@@ -28,12 +28,22 @@ namespace MocksExercise
                 double.TryParse(parameters[0], out nom);
                 double.TryParse(parameters[1], out denom);
 
+                DivisionByZero(denom);
+
                 double result = nom / denom;
                 Console.WriteLine(result);
             }
             catch (Exception) // We do not use the exception object, by not assigning it a variable it is discarded
             {
                 throw new InvalidCommandInputException("Invalid input could not parse number.");
+            }
+        }
+
+        private void DivisionByZero(double denom)
+        {
+            if (denom == 0)
+            {
+                throw new DivideByZeroException();
             }
         }
     }
