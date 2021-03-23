@@ -1,12 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MocksExercise;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MocksExercise.Tests
+/**
+ * @author Simon Goenitzer, Anas Al Kala
+ */
+
+namespace MockUnitTests
 {
     [TestClass()]
     public class SimplePrimeCheckerTests

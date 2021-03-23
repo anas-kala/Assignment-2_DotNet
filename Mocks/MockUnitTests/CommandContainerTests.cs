@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/**
+ * @author Simon Goenitzer, Anas Al Kala
+ */
+
 namespace MocksExercise.Tests
 {
     [TestClass()]
